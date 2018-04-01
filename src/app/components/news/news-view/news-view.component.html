@@ -1,0 +1,12 @@
+<div class="news-content">
+  <p class="news-title" [ngClass]="{'readed': newsData.readed}" (click)='isShowDescription = !isShowDescription'>
+    {{newsData.title}}
+  </p>
+
+  <div *ngIf='isShowDescription' class="description-news">
+    <p class="description-text">{{newsData.description}}</p>
+    <button class="btn-event-control" (click)='onClickDelete()'>Удалить</button>
+    <button class="btn-event-control" (click)='onClickReaded()'>Просмотреть новость</button>
+  </div>
+</div>
+

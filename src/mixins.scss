@@ -1,0 +1,69 @@
+$break-desktop: 1280px;
+$break-tablet: 1024px;
+$break-phone: 480px;
+$break-zero: 0;
+
+@mixin responsive($media) {
+  @if $media == desktop {
+	@media only screen and (min-device-width: $break-desktop) { @content; }
+  }
+  @else if $media == tablet {
+	@media only screen and (min-device-width: $break-tablet) and (max-width: $break-desktop - 1) { @content; }
+  }
+  @else if $media == phone {
+	@media only screen and (min-device-width: $break-phone) and (max-width: $break-tablet - 1) { @content; }
+  }
+  @else if $media == zero {
+	@media only screen and (min-device-width: $break-zero) and (max-width: $break-phone - 1) { @content; }
+  }
+}
+
+@mixin button {
+  background: $color__white;
+  outline: none;
+  border: 1px solid $color__black;
+  height: 30px;
+  width: 150px;
+  &:hover {
+    background: $color__gray;
+  }
+  &:disabled:hover {
+    background: $color__white;
+  }
+  &:disabled {
+    border: 1px solid $color__gray;
+  }
+}
+
+@mixin button-events {
+  background: $color__white;
+  outline: none;
+  border: 1px solid $color__black;
+  font-size: 14px;
+  border-radius: 5px;
+  &:hover {
+    background: $color__gray;
+  }
+}
+
+@mixin eventFont {
+  color: $color__black;
+  font-size: 18px;
+}
+
+@mixin controlTitle {
+  color: $color__gray--dark;
+  margin-bottom: 10px;
+}
+
+@mixin controls {
+  height: 34px;
+  font-size: 14px;
+  outline: 0;
+  background-color: #FFF;
+  padding-left: 6px;
+  color: #555;
+  border-radius: 4px;
+  border: 1px solid $color__gray-51;
+  margin-bottom: 20px;
+}

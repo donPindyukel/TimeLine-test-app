@@ -1,0 +1,9 @@
+@import '../../../../styles.scss';
+.add-financial-wrap {
+  .control-title {
+    @include controlTitle;
+  }
+  button {
+    @include button;
+  }
+}

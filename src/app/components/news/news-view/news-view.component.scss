@@ -1,0 +1,26 @@
+@import '../../../../styles.scss';
+
+.news-content {
+  @include eventFont;
+  .news-title {
+    cursor: pointer;
+    color: $color__green--hover;
+    margin-bottom: 10px;
+    &:hover {
+      color: $color__orange
+    }
+    &.readed {
+      background: $color__blue--lighten;
+      border-radius: 10px;
+    }
+  }
+  .description-news {
+    .description-text {
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+    .btn-event-control {
+      @include button-events;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<div class="add-financial-wrap">
+  <form [formGroup]='form' (ngSubmit)='onSubmit()'>
+    <p class="control-title">Введите сумму транзакции</p>
+    <input type="number" formControlName="amount">
+    <p class="control-title">Введите валюту транзакции</p>
+    <select formControlName="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+    <p class="control-title">Введите отправителя транзакции</p>
+    <input type="text" formControlName="sender">
+    <p class="control-title">Введите описание транзакции</p>
+    <textarea rows="10" formControlName="description"></textarea>
+    <p class="control-title">Введите тип транзакции</p>
+    <select formControlName="typeTransaction">
+      <option value="income">Приход</option>
+      <option value="expend">Расход</option>
+    </select>
+    <p class="control-title">Введите дату транзакции</p>
+    <my-date-picker name="mydate"
+                    [options]='myDatePickerOptions'
+                    formControlName="myDate"
+    >
+    </my-date-picker>
+    <button type="submit" [disabled]='form.invalid'>Добавить</button>
+  </form>
+</div>

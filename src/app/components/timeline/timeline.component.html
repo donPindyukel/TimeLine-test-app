@@ -1,0 +1,30 @@
+<div class="timeline">
+  <h1>EVENTS TIMELINE</h1>
+  <div class="timeline-wrap">
+    <div class="timeline-list-header" *ngIf='events.length'>
+      <div class="timeline-date" [ngClass]="{'asc': sort === 'ASC', 'desc': sort === 'DESC'}" (click)='changeSortDirection()'>Дата</div>
+      <div class="timeline-type" (click)='changeSortType()'>Тип<div class="type" *ngIf="sortType">({{type}})</div></div>
+      <div class="timeline-content">Событие</div>
+    </div>
+    <div class="timeline-list-body" *ngIf='events'>
+      <div class="timeline-item" *ngFor='let item of events'>
+        <div class="item-date">{{item.date | date: 'dd-MM-yyyy' }}</div>
+        <div class="item-type" appEventType [type]='item.type'></div>
+        <div class="item-content" *ngIf='item.type === "news"'>
+          <app-news-view [newsData]=item
+                         (removeNews)='onRemoveNews(item.id)'
+                         (readedNews)='onReadedNews(item.id)'
+          >
+          </app-news-view>
+        </div>
+        <div class="item-content" *ngIf='item.type === "transaction"'>
+          <app-financial-view [transactionData]=item
+                              (removeTransaction)='onRemoveTransaction(item.id)'
+          >
+          </app-financial-view>
+        </div>
+      </div>
+    </div>
+    <button class="add-events-button" (click)="addNewEvent()">Добавить событие</button>
+  </div>
+</div>

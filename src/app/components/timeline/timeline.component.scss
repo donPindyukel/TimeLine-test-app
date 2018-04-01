@@ -1,0 +1,74 @@
+@import '../../../styles.scss';
+
+.timeline {
+  h1 {
+    color: $color__blue;
+  }
+
+  .add-events-button {
+    @include button;
+  }
+
+  .timeline-wrap,
+  .timeline-list-body {
+    width: 70vw;
+    margin: 0 auto;
+    @include eventFont;
+  }
+
+  .timeline-list-header,
+  .timeline-item {
+    display: flex;
+    justify-content: space-between;
+    .timeline-date,
+    .timeline-type,
+    .item-date,
+    .item-type {
+      text-align: center;
+      width: 20%;
+    }
+
+    .timeline-content,
+    .item-content {
+      text-align: center;
+      width: 60%;
+    }
+
+  }
+
+  .timeline-list-header {
+    color: $color__gray-51;
+    font-size: 20px;
+    .timeline-date {
+      cursor: pointer;
+      display: inline-block;
+      &.asc:after, &.desc:after {
+        content: '';
+        display: inline-block;
+        width: 0;
+        border: 5px solid transparent;
+        border-bottom: 10px solid $color__gray-51;
+        margin-left: 10px;
+      }
+      &.desc:after {
+        border: 5px solid transparent;
+        border-top: 10px solid $color__gray-51;
+        position: relative;
+        top: 4px;
+      }
+    }
+    .timeline-type {
+      height: 40px;
+      .type {
+        font-size: 12px;
+      }
+    }
+  }
+  .timeline-list-body {
+    margin-bottom: 40px;
+    .timeline-item {
+      padding: 20px 10px;
+      border-bottom: 1px solid $color__blue--lighten;
+    }
+  }
+}

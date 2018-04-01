@@ -1,0 +1,13 @@
+@import '../../../styles.scss';
+
+.add-new-event-content {
+  width: 50vw;
+  padding: 30px;
+  margin: 0 auto;
+  .input-control-panel {
+    margin-bottom: 50px;
+  }
+  .add-new-event-title {
+    margin-bottom: 20px;
+  }
+}

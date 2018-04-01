@@ -1,0 +1,15 @@
+<div class="add-news-wrap">
+  <form [formGroup]='form' (ngSubmit)='onSubmit()'>
+    <p class="control-title">Введите название новости</p>
+    <input type="text" formControlName="title">
+    <p class="control-title">Введите дату выхода новости</p>
+    <my-date-picker name="mydate"
+                    [options]='myDatePickerOptions'
+                    formControlName="myDate"
+    >
+    </my-date-picker>
+    <p class="control-title">Введите описание новости</p>
+    <textarea rows="10" formControlName="description"></textarea>
+    <button type="submit" [disabled]='form.invalid'>Добавить</button>
+  </form>
+</div>

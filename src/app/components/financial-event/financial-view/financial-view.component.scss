@@ -1,0 +1,31 @@
+@import '../../../../styles.scss';
+
+.financial-content {
+  .transaction-info {
+    cursor: pointer;
+    margin-bottom: 10px;
+    color: $color__black;
+    border-radius: 20px;
+    &:hover {
+      color: $color__white;
+    }
+    &.income {
+      background: $color__green;
+    }
+    &.expend {
+      background: $color__pink;
+    }
+    .transaction-type {
+      font-size: 20px;
+    }
+  }
+  .description-transaction {
+    .description-text {
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+    .btn-event-control {
+      @include button-events;
+    }
+  }
+}

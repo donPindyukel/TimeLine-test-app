@@ -1,0 +1,29 @@
+<div class="add-new-event-content">
+
+  <div class="input-control-panel">
+    <p class="add-new-event-title">
+      Выберите тип добавляемого события:
+    </p>
+    <label for="news">
+      <input type="radio" id="news" name="event" (change)="onChangeVal('news')" value="news">
+      Новость
+    </label>
+    <label for="financial">
+      <input type="radio" id="financial" name="event" (change)="onChangeVal('financial')" value="financial">
+      Финансовая транзакция
+    </label>
+  </div>
+
+  <app-add-news
+    *ngIf="inputEvent === 'news'"
+    (addNews)='onAddNews($event)'
+  >
+  </app-add-news>
+  <app-add-financial-event
+    *ngIf="inputEvent === 'financial'"
+    (addTransaction)='onAddTransaction($event)'
+  >
+  </app-add-financial-event>
+</div>
+
+

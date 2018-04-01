@@ -1,0 +1,16 @@
+<div class="financial-content">
+  <div class="transaction-info"
+       (click)='isShowDescription = !isShowDescription'
+       [ngClass]="{'income': transactionData.typeTransaction === 'income', 'expend': transactionData.typeTransaction === 'expend'}"
+  >
+    <span class="transaction-type" appTransactionType [type]="transactionData.typeTransaction"></span>
+    <span class="transaction-amount">{{transactionData.amount | number:'.2-2'}}</span>
+    <span class="transaction-currency">{{transactionData.currency}}</span>
+    <span class="transaction-sender">Отправитель: {{transactionData.sender}}</span>
+  </div>
+
+  <div *ngIf='isShowDescription' class="description-transaction">
+    <p class="description-text">{{transactionData.description}}</p>
+    <button class="btn-event-control" (click)='onClickDelete()'>Удалить</button>
+  </div>
+</div>
